@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildhaven Zoo | Wild by Nature</title>
+<meta name="description" content="Discover Wildhaven Zoo, a Planet Zoo 2 wildlife adventure. Wild by Nature.">
+<style>
+:root {
+  --green: #176b3a;
+  --deep: #104b2b;
+  --lime: #b5ed77;
+  --cream: #f5f8e9;
+  --leaf: #e2f4d1;
+  --brown: #79563b;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: #213b29;
+  line-height: 1.6;
+}
+header {
+  background: var(--deep);
+  color: white;
+  padding: 17px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.brand { font-size: 1.45rem; font-weight: 900; }
+.brand span { display: block; color: var(--lime); font-size: .8rem; letter-spacing: 3px; }
+nav { display: flex; gap: 16px; flex-wrap: wrap; }
+nav a {
+  color: white; text-decoration: none; font-weight: bold;
+  font-size: .92rem; transition: color .2s;
+}
+nav a:hover { color: var(--lime); }
+.hero {
+  min-height: 440px;
+  padding: 70px 7%;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(8,49,26,.94), rgba(8,49,26,.55)),
+    url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+.hero-content { max-width: 680px; animation: rise .8s ease both; }
+.eyebrow { color: var(--lime); text-transform: uppercase; letter-spacing: 3px; font-weight: bold; }
+h1 { font-size: clamp(2.8rem, 7vw, 5.3rem); line-height: 1.05; margin: 12px 0; }
+h2 { color: var(--deep); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; }
+.hero p { font-size: 1.15rem; max-width: 560px; }
+.button {
+  display: inline-block; background: var(--lime); color: var(--deep);
+  text-decoration: none; padding: 12px 21px; border-radius: 30px;
+  font-weight: 900; margin: 8px 8px 0 0; transition: transform .2s, background .2s;
+}
+.button:hover { transform: translateY(-3px); background: white; }
+.button.outline { border: 2px solid white; background: transparent; color: white; }
+section { padding: 55px 7%; scroll-margin-top: 20px; }
+.section-intro { max-width: 700px; margin-bottom: 28px; }
+.section-intro p { color: #5b6d5c; }
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,240px),1fr));
+  gap: 22px;
+}
+.card {
+  background: white; border-radius: 18px; overflow: hidden;
+  box-shadow: 0 5px 18px #173f2410; transition: transform .25s, box-shadow .25s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 12px 26px #173f2420; }
+.card-image {
+  height: 190px; background: linear-gradient(135deg,#b8dca0,#e1edc7);
+  display: grid; place-items: center; overflow: hidden;
+}
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
+.placeholder { font-size: 4rem; }
+.card-body { padding: 20px; }
+.card h3 { margin: 0 0 8px; color: var(--deep); }
+.tag {
+  display: inline-block; background: var(--leaf); color: var(--green);
+  border-radius: 20px; padding: 4px 10px; font-size: .8rem; font-weight: bold;
+}
+.soft { background: #e7f1dc; }
+.news-card { padding: 25px; border-left: 5px solid #70b84e; }
+.news-card h3 { margin-top: 0; }
+.callout {
+  background: var(--green); color: white; border-radius: 22px;
+  padding: 35px; text-align: center;
+}
+.callout h2 { color: white; }
+.callout p { max-width: 650px; margin: 10px auto 20px; }
+footer { background: #103c25; color: #e4f4de; padding: 30px 7%; text-align: center; }
+footer a { color: var(--lime); }
+.small { font-size: .86rem; color: #647767; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+@media (max-width: 600px) {
+  header { padding: 15px 5%; }
+  nav { gap: 11px; }
+  .hero { min-height: 400px; padding: 55px 6%; }
+  section { padding: 42px 6%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">🌿 WILDHAVEN ZOO <span>WILD BY NATURE</span></div>
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#animals">Animals</a>
+    <a href="#staff">Staff</a>
+    <a href="#youtube">YouTube</a>
+    <a href="#news">Zoo News</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">A Planet Zoo 2 adventure</div>
+    <h1>Discover a wilder world.</h1>
+    <p>Welcome to Wildhaven Zoo, where amazing animals, lush green landscapes and a love for wildlife come together.</p>
+    <p><strong>Wild by Nature. 🌱</strong></p>
+    <a class="button" href="#animals">Meet our animals 🐾</a>
+    <a class="button outline" href="#youtube">Watch our builds</a>
+  </div>
+</section>
+
+<section id="animals">
+  <div class="section-intro">
+    <span class="tag">OUR WILDLIFE</span>
+    <h2>Meet the residents 🐾</h2>
+    <p>Every animal has a story. Discover the wildlife that will call Wildhaven home as our zoo grows.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?auto=format&fit=crop&w=800&q=80" alt="Elephant in its natural environment" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="tag">COMING SOON</span>
+        <h3>Asian Elephant</h3>
+        <p>Our planned first habitat resident! A gentle giant deserves a spacious, enriching home.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-image"><span class="placeholder">🦊</span></div>
+      <div class="card-body">
+        <span class="tag">PLANNED</span>
+        <h3>Future Residents</h3>
+        <p>More animal profiles will appear here as our wildlife family grows.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-image"><span class="placeholder">🦉</span></div>
+      <div class="card-body">
+        <span class="tag">ANIMAL FACT</span>
+        <h3>Wildlife Wonders</h3>
+        <p>Forests provide food, shelter and homes for countless fascinating species.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="soft" id="staff">
+  <div class="section-intro">
+    <span class="tag">OUR TEAM</span>
+    <h2>Meet the Wildhaven crew 🌿</h2>
+    <p>A great zoo needs people who care about animals, habitats and conservation.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="card-image"><span class="placeholder">👑</span></div>
+      <div class="card-body">
+        <h3>Zoo Founder & Manager</h3>
+        <p>The creator behind Wildhaven Zoo, building a wildlife world one habitat at a time.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-image"><span class="placeholder">🩺</span></div>
+      <div class="card-body">
+        <h3>Animal Care Team</h3>
+        <p>Our planned team will help keep every resident healthy, happy and enriched.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="youtube">
+  <div class="callout">
+    <span class="eyebrow">WATCH THE ADVENTURE</span>
+    <h2>Wildhaven on YouTube 🎬</h2>
+    <p>Follow the builds, the habitats, the animals and the occasional building disaster. New videos will be featured here!</p>
+    <a class="button" href="https://www.youtube.com/@TheShadowBonnie4321" target="_blank" rel="noopener noreferrer">Visit TheShadowBonnie4321 ↗</a>
+    <p class="small" style="color:#e4f4de">Add links to individual speedbuild videos here as you upload them.</p>
+  </div>
+</section>
+
+<section class="soft" id="news">
+  <div class="section-intro">
+    <span class="tag">THE LATEST</span>
+    <h2>Wildhaven Zoo News 📰</h2>
+    <p>Follow the progress of our growing zoo.</p>
+  </div>
+  <div class="grid">
+    <article class="card news-card">
+      <span class="tag">THE BEGINNING</span>
+      <h3>A new adventure begins!</h3>
+      <p>Wildhaven Zoo is in development. We're planning a beautiful wildlife park full of natural habitats and amazing animals.</p>
+    </article>
+    <article class="card news-card">
+      <span class="tag">COMING SOON</span>
+      <h3>Our first habitat</h3>
+      <p>The plan is to welcome Asian elephants first. Stay tuned for updates from the building process!</p>
+    </article>
+  </div>
+</section>
+
+<section id="about">
+  <div class="callout">
+    <h2>Wild by Nature 🌳</h2>
+    <p>Wildhaven Zoo is a creative Planet Zoo 2 project celebrating wildlife, thoughtful habitat design and the fun of building a zoo from the ground up.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div style="font-size:1.3rem;font-weight:900">🌿 WILDHAVEN ZOO</div>
+  <p>Wild by Nature.</p>
+  <p class="small" style="color:#e4f4de">A fan-made Planet Zoo 2 project. Not an official real-world zoo.</p>
+  <p>Follow the adventure on <a href="https://www.youtube.com/@TheShadowBonnie4321" target="_blank" rel="noopener noreferrer">YouTube</a>.</p>
+  <p class="small" style="color:#e4f4de">© Wildhaven Zoo</p>
+</footer>
+
+</body>
+</html>
