@@ -20,7 +20,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -32,7 +31,6 @@ body {
 }
 
 button, input, textarea { font: inherit; }
-
 a { color: inherit; }
 
 header {
@@ -218,10 +216,10 @@ main { min-height: 65vh; }
   background: var(--panel);
   border: 1px solid rgba(230,189,98,0.24);
   border-radius: 16px;
+  overflow-wrap: anywhere;
 }
 
 .card h3 { color: var(--gold); margin-top: 0; }
-
 .card p { color: var(--muted); }
 
 .card-icon {
@@ -267,11 +265,8 @@ main { min-height: 65vh; }
 }
 
 .animal-search::placeholder { color: #c3d2c7; }
-
 .animal-card { transition: transform 0.2s; }
-
 .animal-card:hover { transform: translateY(-3px); }
-
 .animal-emoji { font-size: 2.6rem; }
 
 .news-date {
@@ -466,6 +461,8 @@ footer p { margin: 6px; font-size: 0.9rem; }
         <span class="pill">Mammal</span>
         <p>Intelligent, social giants with distinctive smaller ears and a remarkable trunk.</p>
         <p><strong>Meet the lads:</strong> Arjun, Rachit and Raja.</p>
+        <p>Three elephant lads, one amazing habitat! Watch the first Wildhaven Zoo episode as their habitat takes shape.</p>
+        <a class="btn" href="https://youtu.be/0feoUw2QplM?is=02M3MxjT9ClYiJhC" target="_blank" rel="noopener noreferrer">▶ Watch the Habitat Build</a>
       </article>
 
       <article class="card animal-card" data-animal="hawksbill sea turtle turtle marine">
@@ -525,7 +522,7 @@ footer p { margin: 6px; font-size: 0.9rem; }
         <h3>Asian Elephant Habitat</h3>
         <span class="pill">Grassland &amp; woodland</span>
         <p>A spacious home designed around the needs of Arjun, Rachit and Raja.</p>
-        <p><em>Follow the building journey through our YouTube updates.</em></p>
+        <a class="btn" href="https://youtu.be/0feoUw2QplM?is=02M3MxjT9ClYiJhC" target="_blank" rel="noopener noreferrer">▶ Watch the Build</a>
       </article>
 
       <article class="card">
@@ -559,9 +556,17 @@ footer p { margin: 6px; font-size: 0.9rem; }
 
     <div class="grid">
       <article class="card">
+        <div class="card-icon">🐘</div>
+        <h3>Building the Asian Elephant Habitat!</h3>
+        <span class="pill">Wildhaven Zoo — Episode 1</span>
+        <p>We're kicking off Wildhaven Zoo with Arjun, Rachit and Raja! Watch the habitat-building adventure, with jokes, design choices and plenty of elephant action.</p>
+        <a class="btn" href="https://youtu.be/0feoUw2QplM?is=02M3MxjT9ClYiJhC" target="_blank" rel="noopener noreferrer">▶ Watch on YouTube</a>
+      </article>
+
+      <article class="card">
         <div class="card-icon">🏗️</div>
         <h3>Zoo Building Series</h3>
-        <p>Watch habitats take shape, from the first foundations to the finishing touches.</p>
+        <p>Watch habitats take shape, one animal at a time, as Wildhaven grows.</p>
         <span class="pill">Building</span>
       </article>
 
@@ -580,7 +585,9 @@ footer p { margin: 6px; font-size: 0.9rem; }
       </article>
     </div>
 
-    <div class="notice"><strong>Video links coming soon!</strong> Add links to individual videos here when they're ready.</div>
+    <div class="notice">
+      <strong>First episode is live!</strong> Watch the Asian Elephant habitat build and stay tuned for more Wildhaven Zoo adventures.
+    </div>
   </div>
 </section>
 
@@ -610,8 +617,8 @@ footer p { margin: 6px; font-size: 0.9rem; }
       <article class="card">
         <div class="news-date">ANIMAL SPOTLIGHT</div>
         <h3>Meet Arjun, Rachit and Raja</h3>
-        <p>Our three Asian elephant lads are featured in the animal directory. Check back for more facts and habitat updates.</p>
-        <span class="pill">Asian elephants</span>
+        <p>Our three Asian elephant lads star in the first Wildhaven Zoo habitat-building episode.</p>
+        <a class="btn" href="https://youtu.be/0feoUw2QplM?is=02M3MxjT9ClYiJhC" target="_blank" rel="noopener noreferrer">▶ Watch the Episode</a>
       </article>
 
       <article class="card">
@@ -622,7 +629,7 @@ footer p { margin: 6px; font-size: 0.9rem; }
       </article>
     </div>
 
-    <div class="notice">These are introductory website updates. New announcements can be added here as real project milestones happen.</div>
+    <div class="notice">New announcements can be added here as real project milestones happen.</div>
   </div>
 </section>
 
@@ -678,7 +685,7 @@ footer p { margin: 6px; font-size: 0.9rem; }
 
       <details class="faq-item">
         <summary>Can I watch the zoo being built?</summary>
-        <p>Visit the YouTube section for the latest building videos and animal spotlights as links are added.</p>
+        <p>Yes! Visit the YouTube section to watch the Asian Elephant habitat-building episode and future project videos.</p>
       </details>
 
       <details class="faq-item">
