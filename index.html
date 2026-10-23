@@ -280,6 +280,37 @@ main { min-height: 65vh; }
   margin: 15px 0;
 }
 
+/* Grey Wolf pack styling */
+.wolf-pack {
+  margin-top: 22px;
+  padding: 16px;
+  background: rgba(9,39,28,0.65);
+  border: 1px solid rgba(230,189,98,0.3);
+  border-radius: 12px;
+}
+
+.wolf-pack h3 {
+  margin-top: 0;
+}
+
+.wolf-member {
+  padding: 12px;
+  margin-top: 12px;
+  background: rgba(36,92,64,0.55);
+  border-radius: 10px;
+  border-left: 3px solid var(--gold);
+}
+
+.wolf-member h4 {
+  margin: 0 0 5px;
+  color: var(--gold);
+}
+
+.wolf-member p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .news-date {
   color: var(--gold);
   font-size: 0.85rem;
@@ -504,6 +535,57 @@ footer p { margin: 6px; font-size: 0.9rem; }
         <span class="pill">Fish</span>
         <p>A distinctive pufferfish with dark spots and a fascinating way of life.</p>
       </article>
+
+      <!-- NEW: GREY WOLF -->
+      <article class="card animal-card" data-animal="grey wolf grey wolves wolf wolves mammal woodland Engelard Huilang Liara Anton">
+        <div class="animal-emoji">🐺</div>
+        <h3>Grey Wolf</h3>
+        <span class="pill">Mammal</span>
+        <span class="pill">Woodland</span>
+
+        <img
+          class="animal-photo"
+          src="1a169d0b03c13-screenshotUrl.jpg"
+          alt="Grey wolf pack in Wildhaven Zoo"
+          loading="lazy"
+        >
+
+        <p>
+          Grey wolves are intelligent, social canines that
+          communicate and cooperate with their pack.
+        </p>
+
+        <div class="wolf-pack">
+          <h3>🐾 Meet the Pack</h3>
+
+          <div class="wolf-member">
+            <h4>👑 Engelard — The Alpha</h4>
+            <p>The leader of the pack!</p>
+          </div>
+
+          <div class="wolf-member">
+            <h4>💚 Huilang — The Happy One</h4>
+            <p>She often gets especially happy when she sees Engelard. Aww!</p>
+          </div>
+
+          <div class="wolf-member">
+            <h4>⭐ Liara — The Thriving Star</h4>
+            <p>Shadow Bonnie's favourite wolf! She's thriving.</p>
+          </div>
+
+          <div class="wolf-member">
+            <h4>📢 Anton — The Howling Machine</h4>
+            <p>The noisiest wolf at Wildhaven. He howls constantly! 😭</p>
+          </div>
+        </div>
+
+        <p>
+          <strong>Wild fact:</strong> Grey wolves use howls,
+          body language and scent to communicate.
+        </p>
+      </article>
+      <!-- END GREY WOLF -->
+
     </div>
 
     <div class="notice">
@@ -775,11 +857,10 @@ animalSearch.addEventListener("input", () => {
   const query = animalSearch.value.trim().toLowerCase();
 
   animalCards.forEach(card => {
-    const matches =
-      card.dataset.animal.includes(query) ||
-      card.textContent.toLowerCase().includes(query);
+    const searchableText =
+      (card.dataset.animal + " " + card.textContent).toLowerCase();
 
-    card.hidden = !matches;
+    card.hidden = !searchableText.includes(query);
   });
 });
 
