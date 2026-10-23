@@ -1,249 +1,766 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wildhaven Zoo | Wild by Nature</title>
-<meta name="description" content="Discover Wildhaven Zoo, a Planet Zoo 2 wildlife adventure. Wild by Nature.">
+<meta name="theme-color" content="#123d2b">
+<meta name="description" content="Discover Wildhaven Zoo — Wildlife Without Limits. Meet amazing animals, explore their habitats and join our conservation journey.">
+<title>Wildhaven Zoo | Wildlife Without Limits</title>
+
 <style>
 :root {
-  --green: #176b3a;
-  --deep: #104b2b;
-  --lime: #b5ed77;
-  --cream: #f5f8e9;
-  --leaf: #e2f4d1;
-  --brown: #79563b;
+  --green: #123d2b;
+  --deep: #09271c;
+  --light-green: #245c40;
+  --gold: #e6bd62;
+  --cream: #fff8e8;
+  --muted: #d2dfd5;
+  --panel: #194733;
 }
+
 * { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--cream);
-  color: #213b29;
-  line-height: 1.6;
-}
-header {
   background: var(--deep);
-  color: white;
-  padding: 17px 6%;
+  color: var(--cream);
+  line-height: 1.65;
+}
+
+button, input, textarea { font: inherit; }
+
+a { color: inherit; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(9,39,28,0.97);
+  border-bottom: 1px solid rgba(230,189,98,0.35);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 22px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 14px;
   flex-wrap: wrap;
 }
-.brand { font-size: 1.45rem; font-weight: 900; }
-.brand span { display: block; color: var(--lime); font-size: .8rem; letter-spacing: 3px; }
-nav { display: flex; gap: 16px; flex-wrap: wrap; }
-nav a {
-  color: white; text-decoration: none; font-weight: bold;
-  font-size: .92rem; transition: color .2s;
+
+.logo {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--green);
 }
-nav a:hover { color: var(--lime); }
-.hero {
-  min-height: 440px;
-  padding: 70px 7%;
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.brand { flex: 1; min-width: 150px; }
+
+.brand h1 {
+  margin: 0;
+  color: var(--gold);
+  font-size: 1.35rem;
+  letter-spacing: 2px;
+  line-height: 1.25;
+}
+
+.brand p {
+  margin: 3px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+nav {
   display: flex;
-  align-items: center;
-  color: white;
-  background:
-    linear-gradient(90deg, rgba(8,49,26,.94), rgba(8,49,26,.55)),
-    url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85') center/cover;
+  gap: 5px;
+  flex-wrap: wrap;
 }
-.hero-content { max-width: 680px; animation: rise .8s ease both; }
-.eyebrow { color: var(--lime); text-transform: uppercase; letter-spacing: 3px; font-weight: bold; }
-h1 { font-size: clamp(2.8rem, 7vw, 5.3rem); line-height: 1.05; margin: 12px 0; }
-h2 { color: var(--deep); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; }
-.hero p { font-size: 1.15rem; max-width: 560px; }
-.button {
-  display: inline-block; background: var(--lime); color: var(--deep);
-  text-decoration: none; padding: 12px 21px; border-radius: 30px;
-  font-weight: 900; margin: 8px 8px 0 0; transition: transform .2s, background .2s;
+
+nav button {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid transparent;
+  border-radius: 22px;
+  padding: 9px 12px;
+  cursor: pointer;
 }
-.button:hover { transform: translateY(-3px); background: white; }
-.button.outline { border: 2px solid white; background: transparent; color: white; }
-section { padding: 55px 7%; scroll-margin-top: 20px; }
-.section-intro { max-width: 700px; margin-bottom: 28px; }
-.section-intro p { color: #5b6d5c; }
-.grid {
-  display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,240px),1fr));
-  gap: 22px;
+
+nav button:hover,
+nav button.active {
+  background: var(--light-green);
+  border-color: var(--gold);
+  color: var(--gold);
 }
-.card {
-  background: white; border-radius: 18px; overflow: hidden;
-  box-shadow: 0 5px 18px #173f2410; transition: transform .25s, box-shadow .25s;
+
+main { min-height: 65vh; }
+
+.page {
+  display: none;
+  animation: appear 0.25s ease;
 }
-.card:hover { transform: translateY(-6px); box-shadow: 0 12px 26px #173f2420; }
-.card-image {
-  height: 190px; background: linear-gradient(135deg,#b8dca0,#e1edc7);
-  display: grid; place-items: center; overflow: hidden;
-}
-.card-image img { width: 100%; height: 100%; object-fit: cover; }
-.placeholder { font-size: 4rem; }
-.card-body { padding: 20px; }
-.card h3 { margin: 0 0 8px; color: var(--deep); }
-.tag {
-  display: inline-block; background: var(--leaf); color: var(--green);
-  border-radius: 20px; padding: 4px 10px; font-size: .8rem; font-weight: bold;
-}
-.soft { background: #e7f1dc; }
-.news-card { padding: 25px; border-left: 5px solid #70b84e; }
-.news-card h3 { margin-top: 0; }
-.callout {
-  background: var(--green); color: white; border-radius: 22px;
-  padding: 35px; text-align: center;
-}
-.callout h2 { color: white; }
-.callout p { max-width: 650px; margin: 10px auto 20px; }
-footer { background: #103c25; color: #e4f4de; padding: 30px 7%; text-align: center; }
-footer a { color: var(--lime); }
-.small { font-size: .86rem; color: #647767; }
-@keyframes rise {
-  from { opacity: 0; transform: translateY(18px); }
+
+.page.active { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+
+.hero {
+  min-height: 440px;
+  padding: 75px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top, rgba(49,105,65,0.75), transparent 70%),
+    linear-gradient(135deg, #17452f, #09271c 75%);
+  border-bottom: 2px solid var(--gold);
 }
-@media (max-width: 600px) {
-  header { padding: 15px 5%; }
-  nav { gap: 11px; }
-  .hero { min-height: 400px; padding: 55px 6%; }
-  section { padding: 42px 6%; }
+
+.hero-content { max-width: 820px; }
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 0.82rem;
+}
+
+.hero h2 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin: 15px 0;
+  color: var(--cream);
+}
+
+.hero h2 span { color: var(--gold); }
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  font-size: 1.12rem;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-block;
+  border: 2px solid var(--gold);
+  border-radius: 28px;
+  padding: 11px 22px;
+  margin: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--gold);
+  color: var(--deep);
+}
+
+.btn:hover { filter: brightness(1.08); }
+
+.btn.secondary {
+  background: transparent;
+  color: var(--gold);
+}
+
+.container {
+  max-width: 1120px;
+  padding: 45px 22px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  color: var(--gold);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0 0 8px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  max-width: 700px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  padding: 23px;
+  background: var(--panel);
+  border: 1px solid rgba(230,189,98,0.24);
+  border-radius: 16px;
+}
+
+.card h3 { color: var(--gold); margin-top: 0; }
+
+.card p { color: var(--muted); }
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.feature {
+  background: var(--green);
+  border-top: 1px solid rgba(230,189,98,0.3);
+  border-bottom: 1px solid rgba(230,189,98,0.3);
+}
+
+.notice {
+  padding: 18px;
+  background: rgba(230,189,98,0.09);
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  color: var(--muted);
+  margin: 20px 0;
+}
+
+.pill {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 20px;
+  padding: 4px 11px;
+  font-size: 0.78rem;
+  margin: 3px;
+}
+
+.animal-search {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto 25px;
+  padding: 13px 16px;
+  border: 1px solid var(--gold);
+  border-radius: 25px;
+  background: var(--green);
+  color: var(--cream);
+}
+
+.animal-search::placeholder { color: #c3d2c7; }
+
+.animal-card { transition: transform 0.2s; }
+
+.animal-card:hover { transform: translateY(-3px); }
+
+.animal-emoji { font-size: 2.6rem; }
+
+.news-date {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(230,189,98,0.25);
+  padding: 15px 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--gold);
+}
+
+.faq-item p { color: var(--muted); }
+
+footer {
+  padding: 32px 20px;
+  text-align: center;
+  background: #061b13;
+  border-top: 2px solid var(--gold);
+  color: var(--muted);
+}
+
+.footer-brand {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+footer p { margin: 6px; font-size: 0.9rem; }
+
+.back-top {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 5;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--deep);
+  border: 0;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: none;
+}
+
+.back-top.visible { display: block; }
+
+@media (max-width: 760px) {
+  .header-inner { justify-content: center; }
+  .brand { flex: 1; }
+  nav { width: 100%; justify-content: center; }
+  nav button { padding: 8px 10px; font-size: 0.85rem; }
+  .hero { min-height: 390px; padding: 55px 18px; }
+  .container { padding: 35px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="brand">🌿 WILDHAVEN ZOO <span>WILD BY NATURE</span></div>
-  <nav aria-label="Main navigation">
-    <a href="#home">Home</a>
-    <a href="#animals">Animals</a>
-    <a href="#staff">Staff</a>
-    <a href="#youtube">YouTube</a>
-    <a href="#news">Zoo News</a>
-  </nav>
+  <div class="header-inner">
+    <div class="logo">
+      <img src="wildhaven-logo.png" alt="Wildhaven Zoo official logo">
+    </div>
+
+    <div class="brand">
+      <h1>WILDHAVEN ZOO</h1>
+      <p>WILDLIFE WITHOUT LIMITS</p>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <button class="active" data-page="home">Home</button>
+      <button data-page="animals">Animals</button>
+      <button data-page="habitats">Habitats</button>
+      <button data-page="youtube">YouTube</button>
+      <button data-page="news">Zoo News</button>
+      <button data-page="about">About &amp; FAQ</button>
+    </nav>
+  </div>
 </header>
 
 <main>
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="eyebrow">A Planet Zoo 2 adventure</div>
-    <h1>Discover a wilder world.</h1>
-    <p>Welcome to Wildhaven Zoo, where amazing animals, lush green landscapes and a love for wildlife come together.</p>
-    <p><strong>Wild by Nature. 🌱</strong></p>
-    <a class="button" href="#animals">Meet our animals 🐾</a>
-    <a class="button outline" href="#youtube">Watch our builds</a>
+
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Welcome to Wildhaven Zoo</div>
+      <h2>Wildlife <span>Without</span> Limits.</h2>
+      <p>Discover incredible animals, explore beautiful habitats and join us in celebrating the wonderful world of wildlife.</p>
+      <button class="btn" data-go="animals">Meet the Animals</button>
+      <button class="btn secondary" data-go="about">Discover Wildhaven</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-heading">
+      <h2>Welcome to the Wild</h2>
+      <p>A place for amazing animals, unforgettable discoveries and a love of nature.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-icon">🐘</div>
+        <h3>Meet Our Animals</h3>
+        <p>From gentle giants to tiny wonders, every animal has a story worth discovering.</p>
+        <button class="btn secondary" data-go="animals">Explore Animals</button>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🌲</div>
+        <h3>Explore Habitats</h3>
+        <p>Discover the environments where wildlife lives, thrives and finds shelter.</p>
+        <button class="btn secondary" data-go="habitats">Explore Habitats</button>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🎥</div>
+        <h3>Behind the Scenes</h3>
+        <p>Follow the zoo's building journey, animal updates and fun moments on YouTube.</p>
+        <button class="btn secondary" data-go="youtube">Visit YouTube</button>
+      </article>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Our Promise to Wildlife</h2>
+        <p>Respect for animals and an appreciation of the natural world are at the heart of Wildhaven.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon">💚</div>
+          <h3>Animal Wellbeing</h3>
+          <p>Celebrating suitable habitats, enrichment and responsible animal care.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🌍</div>
+          <h3>Conservation</h3>
+          <p>Learning about wildlife and why protecting nature matters for future generations.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🔎</div>
+          <h3>Discovery</h3>
+          <p>Making every visit an opportunity to discover something new about the animal kingdom.</p>
+        </article>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="animals">
-  <div class="section-intro">
-    <span class="tag">OUR WILDLIFE</span>
-    <h2>Meet the residents 🐾</h2>
-    <p>Every animal has a story. Discover the wildlife that will call Wildhaven home as our zoo grows.</p>
+<section class="page" id="animals">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Meet the Residents</div>
+      <h2>Our <span>Amazing</span> Animals</h2>
+      <p>Get to know the Wildhaven residents, from our magnificent Asian elephants to the wonders of the reef.</p>
+    </div>
   </div>
-  <div class="grid">
-    <article class="card">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?auto=format&fit=crop&w=800&q=80" alt="Elephant in its natural environment" loading="lazy">
-      </div>
-      <div class="card-body">
-        <span class="tag">COMING SOON</span>
+
+  <div class="container">
+    <div class="section-heading">
+      <h2>Animal Directory</h2>
+      <p>Search the animals currently featured on our website.</p>
+    </div>
+
+    <input class="animal-search" id="animalSearch" type="search" placeholder="Search animals..." aria-label="Search animals">
+
+    <div class="grid" id="animalGrid">
+      <article class="card animal-card" data-animal="asian elephant arjun rachit raja">
+        <div class="animal-emoji">🐘</div>
         <h3>Asian Elephant</h3>
-        <p>Our planned first habitat resident! A gentle giant deserves a spacious, enriching home.</p>
-      </div>
-    </article>
-    <article class="card">
-      <div class="card-image"><span class="placeholder">🦊</span></div>
-      <div class="card-body">
-        <span class="tag">PLANNED</span>
-        <h3>Future Residents</h3>
-        <p>More animal profiles will appear here as our wildlife family grows.</p>
-      </div>
-    </article>
-    <article class="card">
-      <div class="card-image"><span class="placeholder">🦉</span></div>
-      <div class="card-body">
-        <span class="tag">ANIMAL FACT</span>
-        <h3>Wildlife Wonders</h3>
-        <p>Forests provide food, shelter and homes for countless fascinating species.</p>
-      </div>
-    </article>
+        <span class="pill">Mammal</span>
+        <p>Intelligent, social giants with distinctive smaller ears and a remarkable trunk.</p>
+        <p><strong>Meet the lads:</strong> Arjun, Rachit and Raja.</p>
+      </article>
+
+      <article class="card animal-card" data-animal="hawksbill sea turtle turtle marine">
+        <div class="animal-emoji">🐢</div>
+        <h3>Hawksbill Sea Turtle</h3>
+        <span class="pill">Marine reptile</span>
+        <p>A sea turtle known for its patterned shell and pointed, bird-like beak.</p>
+      </article>
+
+      <article class="card animal-card" data-animal="blacktip reef shark shark marine">
+        <div class="animal-emoji">🦈</div>
+        <h3>Blacktip Reef Shark</h3>
+        <span class="pill">Fish</span>
+        <p>A reef-dwelling shark recognised by the dark tips on several of its fins.</p>
+      </article>
+
+      <article class="card animal-card" data-animal="blackspotted puffer pufferfish fish">
+        <div class="animal-emoji">🐡</div>
+        <h3>Blackspotted Puffer</h3>
+        <span class="pill">Fish</span>
+        <p>A distinctive pufferfish with dark spots and a fascinating way of life.</p>
+      </article>
+    </div>
+
+    <div class="notice">
+      <strong>More residents coming soon!</strong> This directory will grow as new animals and habitats are added.
+    </div>
   </div>
 </section>
 
-<section class="soft" id="staff">
-  <div class="section-intro">
-    <span class="tag">OUR TEAM</span>
-    <h2>Meet the Wildhaven crew 🌿</h2>
-    <p>A great zoo needs people who care about animals, habitats and conservation.</p>
+<section class="page" id="habitats">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Explore Their Worlds</div>
+      <h2>Wild <span>Habitats</span></h2>
+      <p>Every habitat tells a story. Explore the environments being created at Wildhaven Zoo.</p>
+    </div>
   </div>
-  <div class="grid">
-    <article class="card">
-      <div class="card-image"><span class="placeholder">👑</span></div>
-      <div class="card-body">
-        <h3>Zoo Founder & Manager</h3>
-        <p>The creator behind Wildhaven Zoo, building a wildlife world one habitat at a time.</p>
+
+  <div class="container">
+    <div class="section-heading">
+      <h2>Discover Our Habitats</h2>
+      <p>Explore the zoo's current projects and planned animal environments.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-icon">🌳</div>
+        <h3>Woodland World</h3>
+        <span class="pill">Woodland</span>
+        <p>A lush, nature-inspired environment celebrating woodland wildlife.</p>
+        <p><em>Habitat updates coming soon.</em></p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🐘</div>
+        <h3>Asian Elephant Habitat</h3>
+        <span class="pill">Grassland &amp; woodland</span>
+        <p>A spacious home designed around the needs of Arjun, Rachit and Raja.</p>
+        <p><em>Follow the building journey through our YouTube updates.</em></p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🪸</div>
+        <h3>Coastal Discovery Centre</h3>
+        <span class="pill">Aquatic</span>
+        <p>A planned underwater world inspired by coral reefs and fascinating marine life.</p>
+        <p><em>More details coming soon.</em></p>
+      </article>
+    </div>
+
+    <div class="notice">Habitat descriptions reflect the zoo's creative projects. Updates will be added as construction progresses.</div>
+  </div>
+</section>
+
+<section class="page" id="youtube">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Watch the Adventure</div>
+      <h2>Wildhaven <span>On YouTube</span></h2>
+      <p>Building habitats, meeting animals and sharing the chaos that comes with creating a zoo!</p>
+      <a class="btn" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">Visit YouTube</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-heading">
+      <h2>From the Zoo to Your Screen</h2>
+      <p>Follow the progress of Wildhaven and discover new animal stories.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-icon">🏗️</div>
+        <h3>Zoo Building Series</h3>
+        <p>Watch habitats take shape, from the first foundations to the finishing touches.</p>
+        <span class="pill">Building</span>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🐾</div>
+        <h3>Animal Spotlights</h3>
+        <p>Meet individual species and learn fun facts about their behaviour and natural homes.</p>
+        <span class="pill">Animal facts</span>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">😂</div>
+        <h3>Zoo Shenanigans</h3>
+        <p>Because even a serious zoo project deserves a few ridiculous moments.</p>
+        <span class="pill">Fun</span>
+      </article>
+    </div>
+
+    <div class="notice"><strong>Video links coming soon!</strong> Add links to individual videos here when they're ready.</div>
+  </div>
+</section>
+
+<section class="page" id="news">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">The Latest from Wildhaven</div>
+      <h2>Zoo <span>News</span></h2>
+      <p>Project announcements, habitat progress and updates from our growing wildlife world.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-heading">
+      <h2>Latest Updates</h2>
+      <p>News from the Wildhaven Zoo project.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="news-date">PROJECT UPDATE</div>
+        <h3>Welcome to Wildhaven Zoo!</h3>
+        <p>Our website is taking shape! Follow the zoo's projects, animal directory and future updates here.</p>
+        <span class="pill">Website</span>
+      </article>
+
+      <article class="card">
+        <div class="news-date">ANIMAL SPOTLIGHT</div>
+        <h3>Meet Arjun, Rachit and Raja</h3>
+        <p>Our three Asian elephant lads are featured in the animal directory. Check back for more facts and habitat updates.</p>
+        <span class="pill">Asian elephants</span>
+      </article>
+
+      <article class="card">
+        <div class="news-date">COMING SOON</div>
+        <h3>More Habitats on the Way</h3>
+        <p>New habitat pages and project updates will be added as the Wildhaven world expands.</p>
+        <span class="pill">Construction</span>
+      </article>
+    </div>
+
+    <div class="notice">These are introductory website updates. New announcements can be added here as real project milestones happen.</div>
+  </div>
+</section>
+
+<section class="page" id="about">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Our Story</div>
+      <h2>About <span>Wildhaven</span></h2>
+      <p>A wildlife-inspired zoo project built around creativity, animal discovery and a love of nature.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-heading">
+      <h2>Our Mission</h2>
+      <p>Wildlife Without Limits.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Nature First</h3>
+        <p>We want our habitats and stories to encourage curiosity about animals and the natural world.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">📚</div>
+        <h3>Learn Something New</h3>
+        <p>From animal adaptations to habitat design, there's always something new to discover.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">✨</div>
+        <h3>Built with Imagination</h3>
+        <p>Wildhaven is a creative zoo project that grows one idea, habitat and animal at a time.</p>
+      </article>
+    </div>
+
+    <div style="margin-top:45px">
+      <div class="section-heading">
+        <h2>Frequently Asked Questions</h2>
       </div>
-    </article>
-    <article class="card">
-      <div class="card-image"><span class="placeholder">🩺</span></div>
-      <div class="card-body">
-        <h3>Animal Care Team</h3>
-        <p>Our planned team will help keep every resident healthy, happy and enriched.</p>
-      </div>
-    </article>
+
+      <details class="faq-item">
+        <summary>What is Wildhaven Zoo?</summary>
+        <p>Wildhaven Zoo is a creative zoo project focused on designing animal habitats, sharing animal facts and documenting the building process.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What does “Wildlife Without Limits” mean?</summary>
+        <p>It's our slogan: a celebration of wildlife, discovery and the endless variety of the natural world.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I watch the zoo being built?</summary>
+        <p>Visit the YouTube section for the latest building videos and animal spotlights as links are added.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Will more animals be added?</summary>
+        <p>Absolutely! The animal directory and habitat pages can expand as the project grows.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is this a real-world zoo?</summary>
+        <p>This website presents the Wildhaven Zoo creative project. Details about habitats and residents relate to the project, rather than claiming real-world zoo facilities.</p>
+      </details>
+    </div>
   </div>
 </section>
 
-<section id="youtube">
-  <div class="callout">
-    <span class="eyebrow">WATCH THE ADVENTURE</span>
-    <h2>Wildhaven on YouTube 🎬</h2>
-    <p>Follow the builds, the habitats, the animals and the occasional building disaster. New videos will be featured here!</p>
-    <a class="button" href="https://www.youtube.com/@TheShadowBonnie4321" target="_blank" rel="noopener noreferrer">Visit TheShadowBonnie4321 ↗</a>
-    <p class="small" style="color:#e4f4de">Add links to individual speedbuild videos here as you upload them.</p>
-  </div>
-</section>
-
-<section class="soft" id="news">
-  <div class="section-intro">
-    <span class="tag">THE LATEST</span>
-    <h2>Wildhaven Zoo News 📰</h2>
-    <p>Follow the progress of our growing zoo.</p>
-  </div>
-  <div class="grid">
-    <article class="card news-card">
-      <span class="tag">THE BEGINNING</span>
-      <h3>A new adventure begins!</h3>
-      <p>Wildhaven Zoo is in development. We're planning a beautiful wildlife park full of natural habitats and amazing animals.</p>
-    </article>
-    <article class="card news-card">
-      <span class="tag">COMING SOON</span>
-      <h3>Our first habitat</h3>
-      <p>The plan is to welcome Asian elephants first. Stay tuned for updates from the building process!</p>
-    </article>
-  </div>
-</section>
-
-<section id="about">
-  <div class="callout">
-    <h2>Wild by Nature 🌳</h2>
-    <p>Wildhaven Zoo is a creative Planet Zoo 2 project celebrating wildlife, thoughtful habitat design and the fun of building a zoo from the ground up.</p>
-  </div>
-</section>
 </main>
 
 <footer>
-  <div style="font-size:1.3rem;font-weight:900">🌿 WILDHAVEN ZOO</div>
-  <p>Wild by Nature.</p>
-  <p class="small" style="color:#e4f4de">A fan-made Planet Zoo 2 project. Not an official real-world zoo.</p>
-  <p>Follow the adventure on <a href="https://www.youtube.com/@TheShadowBonnie4321" target="_blank" rel="noopener noreferrer">YouTube</a>.</p>
-  <p class="small" style="color:#e4f4de">© Wildhaven Zoo</p>
+  <div class="footer-brand">WILDHAVEN ZOO</div>
+  <p><em>Wildlife Without Limits.</em></p>
+  <p>Created with a love of wildlife, nature and imagination.</p>
+  <p>© <span id="year"></span> Wildhaven Zoo. All rights reserved.</p>
 </footer>
+
+<button class="back-top" id="backTop" aria-label="Back to top" title="Back to top">↑</button>
+
+<script>
+const pageButtons = document.querySelectorAll("[data-page]");
+const pages = document.querySelectorAll(".page");
+
+function showPage(pageId) {
+  const target = document.getElementById(pageId);
+  if (!target || !target.classList.contains("page")) return;
+
+  pages.forEach(page => {
+    page.classList.toggle("active", page.id === pageId);
+  });
+
+  pageButtons.forEach(button => {
+    const selected = button.dataset.page === pageId;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-current", selected ? "page" : "false");
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+pageButtons.forEach(button => {
+  button.addEventListener("click", () => showPage(button.dataset.page));
+});
+
+document.querySelectorAll("[data-go]").forEach(button => {
+  button.addEventListener("click", () => showPage(button.dataset.go));
+});
+
+const animalSearch = document.getElementById("animalSearch");
+const animalCards = document.querySelectorAll(".animal-card");
+
+animalSearch.addEventListener("input", () => {
+  const query = animalSearch.value.trim().toLowerCase();
+
+  animalCards.forEach(card => {
+    const matches =
+      card.dataset.animal.includes(query) ||
+      card.textContent.toLowerCase().includes(query);
+
+    card.hidden = !matches;
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const backTop = document.getElementById("backTop");
+
+window.addEventListener("scroll", () => {
+  backTop.classList.toggle("visible", window.scrollY > 350);
+});
+
+backTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
 
 </body>
 </html>
